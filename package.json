@@ -1,0 +1,31 @@
+{
+  "name": "progress-bar-widget",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build:bundle": "webpack --mode production"
+  },
+  "dependencies": {
+    "@faclon-labs/design-sdk": "latest",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7",
+    "@babel/preset-env": "^7",
+    "@babel/preset-react": "^7",
+    "@babel/preset-typescript": "^7",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "babel-loader": "^9",
+    "css-loader": "^6",
+    "html-webpack-plugin": "^5",
+    "mini-css-extract-plugin": "^2",
+    "style-loader": "^3",
+    "typescript": "^5",
+    "webpack": "^5",
+    "webpack-cli": "^5",
+    "webpack-dev-server": "^5"
+  }
+}

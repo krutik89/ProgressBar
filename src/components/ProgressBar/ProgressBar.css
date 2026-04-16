@@ -1,0 +1,142 @@
+/* ProgressBar widget — BEM scoped styles. Only own classes. No .fds-* overrides. */
+
+/* ── Outer container ──────────────────────────────────────────────────────── */
+.progress-bar-widget__outer {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Inner widget shell ───────────────────────────────────────────────────── */
+.progress-bar-widget {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-03);
+  padding: var(--spacing-04);
+  box-sizing: border-box;
+}
+
+/* ── Row 1: Header ────────────────────────────────────────────────────────── */
+.progress-bar-widget__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.progress-bar-widget__title {
+  color: var(--text-default-primary);
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Dropdown anchor (absolute positioned below trigger) ─────────────────── */
+.progress-bar-widget__dropdown-anchor {
+  position: absolute;
+  right: 0;
+  top: calc(100% + var(--spacing-01));
+  z-index: var(--z-index-dropdown, 100);
+  min-width: 180px;
+}
+
+/* ── Row 2: Controls ──────────────────────────────────────────────────────── */
+.progress-bar-widget__controls {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-03);
+  flex-shrink: 0;
+}
+
+.progress-bar-widget__date-trigger {
+  display: inline-flex;
+  align-items: center;
+  background: var(--background-default-intense);
+  border: var(--fds-border-default);
+  border-radius: var(--global-border-radius-medium);
+  padding: var(--spacing-02) var(--spacing-03);
+  color: var(--text-default-primary);
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: inherit;
+  font-family: inherit;
+  width: 100%;
+}
+
+.progress-bar-widget__date-trigger:hover {
+  background: var(--background-default-hover);
+}
+
+.progress-bar-widget__datepicker-anchor {
+  position: absolute;
+  top: calc(100% + var(--spacing-01));
+  left: 0;
+  z-index: var(--z-index-dropdown, 100);
+}
+
+/* ── Row 3: Body / bars ───────────────────────────────────────────────────── */
+.progress-bar-widget__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-04);
+  overflow-y: auto;
+}
+
+/* ── Individual bar item ──────────────────────────────────────────────────── */
+.progress-bar-widget__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-02);
+}
+
+.progress-bar-widget__item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-03);
+}
+
+.progress-bar-widget__item-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.progress-bar-widget__item-meta {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-02);
+}
+
+/* ── Progress track & fill ────────────────────────────────────────────────── */
+.progress-bar-widget__track {
+  width: 100%;
+  background: var(--background-default-intense);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.progress-bar-widget__fill {
+  background: var(--background-brand-default);
+  transition: width 0.35s ease;
+}
+
+/* ── State: loading / error / empty ──────────────────────────────────────── */
+.progress-bar-widget__state-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+}
+
+.progress-bar-widget__error {
+  color: var(--text-negative-default);
+}

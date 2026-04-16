@@ -1,0 +1,106 @@
+/* ProgressBarConfiguration — BEM scoped. No Card wrapper. No .fds-* overrides. */
+
+/* ── Root shell ───────────────────────────────────────────────────────────── */
+.progress-bar-config {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ── Tab body (scrollable content below tabs) ─────────────────────────────── */
+.progress-bar-config__tab-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* ── Accordion body width rule (do NOT target .fds-* classes) ────────────── */
+/* Wrap all accordion body children in this to prevent shrink */
+.progress-bar-config__section {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-04);
+  padding: var(--spacing-04) var(--spacing-04) var(--spacing-04) var(--spacing-04);
+}
+
+/* ── Time tab top section (timezone + time type, no accordion) ───────────── */
+.progress-bar-config__time-top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-04);
+  padding: var(--spacing-04);
+}
+
+/* ── Bar list in Bar Settings accordion ──────────────────────────────────── */
+.progress-bar-config__bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-02);
+  width: 100%;
+}
+
+.progress-bar-config__bar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-02) var(--spacing-03);
+  background: var(--background-default-intense);
+  border-radius: var(--global-border-radius-medium);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.progress-bar-config__bar-row:hover {
+  background: var(--background-default-hover);
+}
+
+.progress-bar-config__bar-row--active {
+  border-color: var(--border-brand-default);
+  background: var(--background-brand-subtle);
+}
+
+.progress-bar-config__bar-row-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-default-primary);
+}
+
+/* ── Inline row (e.g. hour + minute side by side) ────────────────────────── */
+.progress-bar-config__row {
+  display: flex;
+  gap: var(--spacing-03);
+  width: 100%;
+}
+
+.progress-bar-config__row > * {
+  flex: 1;
+}
+
+/* ── Color swatch (suffix of TextInput for color field) ──────────────────── */
+.progress-bar-config__color-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--global-border-radius-small);
+  border: var(--fds-border-default);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── Color picker anchor ─────────────────────────────────────────────────── */
+.progress-bar-config__color-picker-anchor {
+  position: absolute;
+  right: 0;
+  top: calc(100% + var(--spacing-01));
+  z-index: var(--z-index-dropdown, 100);
+  background: var(--background-default-surface);
+  border-radius: var(--global-border-radius-large);
+  box-shadow: var(--fds-shadow-lg);
+  padding: var(--spacing-03);
+  width: 240px;
+}
